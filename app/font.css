@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi-Regular.eot");
+  src:
+    url("/fonts/Nohemi-Regular.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/Nohemi-Regular.woff2") format("woff2"),
+    url("/fonts/Nohemi-Regular.woff") format("woff"),
+    url("/fonts/Nohemi-Regular.ttf") format("truetype"),
+    url("/fonts/Nohemi-Regular.svg#Nohemi-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi-Bold.eot");
+  src:
+    url("/fonts/Nohemi-Bold.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/Nohemi-Bold.woff2") format("woff2"),
+    url("/fonts/Nohemi-Bold.woff") format("woff"),
+    url("/fonts/Nohemi-Bold.ttf") format("truetype"),
+    url("/fonts/Nohemi-Bold.svg#Nohemi-Bold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi-ExtraBold.eot");
+  src:
+    url("/fonts/Nohemi-ExtraBold.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/Nohemi-ExtraBold.woff2") format("woff2"),
+    url("/fonts/Nohemi-ExtraBold.woff") format("woff"),
+    url("/fonts/Nohemi-ExtraBold.ttf") format("truetype"),
+    url("/fonts/Nohemi-ExtraBold.svg#Nohemi-ExtraBold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi-Black.eot");
+  src:
+    url("/fonts/Nohemi-Black.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/Nohemi-Black.woff2") format("woff2"),
+    url("/fonts/Nohemi-Black.woff") format("woff"),
+    url("/fonts/Nohemi-Black.ttf") format("truetype"),
+    url("/fonts/Nohemi-Black.svg#Nohemi-Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-custom: "HelveticaNowDisplay", sans-serif;
+}
