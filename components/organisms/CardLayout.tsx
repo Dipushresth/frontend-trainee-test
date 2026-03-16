@@ -26,8 +26,6 @@ export default function CardLayout({
   onHover,
   onLeave,
 }: CardLayoutInterface) {
-  const MotionCard = motion.create(Card)
-  console.log("card position", card.position)
   return (
     <motion.div
       onMouseEnter={onHover}
@@ -46,11 +44,11 @@ export default function CardLayout({
     >
       <Card
         className={cn(
-          "relative min-h-85 items-center justify-center overflow-visible rounded-2xl border-0 px-9 text-white shadow-none! outline-0 hover:shadow-none! hover:outline-0 lg:rounded-[32px]"
+          "relative min-h-95 items-center justify-center overflow-visible rounded-2xl border-0 text-white shadow-none! outline-0 hover:shadow-none! hover:outline-0 lg:min-h-85 lg:rounded-[32px] lg:px-9"
         )}
       >
         <div
-          className="absolute inset-0 overflow-hidden rounded-2xl duration-500 lg:rounded-[32px]"
+          className="inset-0 overflow-hidden rounded-2xl duration-500 lg:absolute lg:rounded-[32px]"
           style={{ backgroundColor: card?.color }}
         >
           <AnimatePresence>
@@ -78,7 +76,7 @@ export default function CardLayout({
             ease: [0.4, 0, 0.2, 1],
           }}
           className={cn(
-            "pointer-events-none absolute top-0 left-0 z-30 h-full rounded-2xl px-3 py-8 lg:rounded-[32px] lg:px-8 lg:py-12",
+            "pointer-events-none top-0 left-0 z-30 h-full rounded-2xl px-3 py-8 lg:absolute lg:rounded-[32px] lg:px-8 lg:py-12",
             card.position === "left" ? "left-0" : "right-[-15]"
           )}
           style={{ backgroundColor: card.color }}
@@ -94,7 +92,7 @@ export default function CardLayout({
             </CardHeader>
             <CardContent
               className={cn(
-                "text-base-white max-w-[60%] text-[15px] leading-normal xl:text-lg",
+                "text-base-white max-w-[80%] text-[15px] leading-normal lg:max-w-[60%] xl:text-lg",
                 card?.position === "right" ? "" : "ml-auto"
               )}
             >
@@ -105,16 +103,18 @@ export default function CardLayout({
             <CardFooter
               className={cn(
                 "absolute bottom-0 z-10 border-0 bg-transparent lg:top-30",
-                card.position === "left" ? "lg:left-[-80]" : "right-0",
+                card.position === "left"
+                  ? "lg:left-[-80]"
+                  : "right-[-25%] lg:right-0",
                 card.id === 3 && "top-auto bottom-[-50]",
-                card.id === 4 && "right-0"
+                card.id === 4 && "right-[-35%] lg:right-0"
               )}
             >
               <FolatingContent>
                 <Image
                   src={card.image}
                   alt=""
-                  className="w-ful pointer-events-none object-contain md:w-2xs"
+                  className="pointer-events-none w-[60%] object-contain md:w-2xs"
                 />
               </FolatingContent>
             </CardFooter>

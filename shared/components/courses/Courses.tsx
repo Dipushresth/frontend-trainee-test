@@ -98,8 +98,8 @@ export default function Courses() {
                       "font-nohemi relative left-3 leading-none font-semibold",
                       "text-[7rem] xl:text-[9.5rem]",
                       isActive
-                        ? "bottom-[90] left-0 xl:top-11"
-                        : "bottom-[-50] xl:top-1/5"
+                        ? "bottom-[90] left-[-1] xl:top-8"
+                        : "bottom-[-50] xl:top-1/7"
                     )}
                   >
                     {item.count}
@@ -108,13 +108,13 @@ export default function Courses() {
                     className={cn(
                       "absolute flex flex-col",
                       isActive
-                        ? "top-[-90] left-1/3 w-75 xl:top-1/4"
+                        ? "top-[-90] left-1/3 w-75 xl:top-1/3"
                         : "top-[10%] left-2/3 xl:top-1/5 xl:left-1/2"
                     )}
                     initial={false}
                     animate={{
                       rotate: isActive ? 0 : -90,
-                      paddingLeft: isActive ? "90px" : "90px",
+                      paddingLeft: isActive ? "100px" : "90px",
                     }}
                     transition={{
                       type: "spring",
