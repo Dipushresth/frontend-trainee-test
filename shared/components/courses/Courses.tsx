@@ -95,11 +95,11 @@ export default function Courses() {
                 >
                   <motion.span
                     className={cn(
-                      "font-nohemi relative leading-none font-semibold",
+                      "font-nohemi relative left-3 leading-none font-semibold",
                       "text-[7rem] xl:text-[9.5rem]",
                       isActive
-                        ? "bottom-[90] xl:top-11"
-                        : "bottom-[-50] lg:top-1/5"
+                        ? "bottom-[90] left-0 xl:top-11"
+                        : "bottom-[-50] xl:top-1/5"
                     )}
                   >
                     {item.count}
@@ -114,7 +114,7 @@ export default function Courses() {
                     initial={false}
                     animate={{
                       rotate: isActive ? 0 : -90,
-                      paddingLeft: isActive ? "90px" : "80px",
+                      paddingLeft: isActive ? "90px" : "90px",
                     }}
                     transition={{
                       type: "spring",

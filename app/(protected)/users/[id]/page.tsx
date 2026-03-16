@@ -68,7 +68,7 @@ export default function UserPostId({ params }: UserListInterface) {
     <div className="flex flex-col">
       <div className="min-h-[calc(100vh-70px)]">
         <Link
-          href="/"
+          href="/users"
           className="group mb-8 inline-flex items-center gap-2 text-blue-500 transition-colors hover:text-blue-400"
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />

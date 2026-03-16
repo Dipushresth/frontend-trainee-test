@@ -46,7 +46,7 @@ export default function CardCarousel({ images }: CardCarouselInterface) {
       </AnimatePresence>
       <Button
         onClick={prev}
-        className="absolute top-[35%] left-[-50] z-30 flex h-30 w-30 items-center justify-center rounded-full bg-white shadow-lg"
+        className="absolute top-[35%] left-[-50] z-30 flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg"
       >
         <span className="relative left-3 flex h-10 w-10 items-center justify-center rounded-[50%] bg-slate-100 shadow">
           <ChevronLeft className="h-6 w-6 text-gray-800" />
@@ -54,7 +54,7 @@ export default function CardCarousel({ images }: CardCarouselInterface) {
       </Button>
       <Button
         onClick={next}
-        className="absolute top-[35%] right-[-50] z-30 flex h-30 w-30 items-center justify-center rounded-full bg-white shadow-lg transition-colors hover:bg-gray-100"
+        className="absolute top-[35%] right-[-50] z-30 flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg transition-colors hover:bg-gray-100"
       >
         <span className="relative right-3 flex h-10 w-10 items-center justify-center rounded-[50%] bg-slate-100 shadow">
           <ChevronRight className="h-6 w-6 text-gray-800" />
