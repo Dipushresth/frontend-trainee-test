@@ -1,5 +1,5 @@
 "use client"
-import { PaginationUi } from "@/components/common/PaginationUi"
+import { PaginationUi } from "@/components/molecules/PaginationUI"
 import AddPostForm from "@/shared/components/AddPostForm"
 import { useStore } from "@/store/useStore"
 import { ArrowLeft, Building, Mail } from "lucide-react"

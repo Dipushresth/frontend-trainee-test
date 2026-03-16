@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Icon } from "@/assets/icons/icons"
-import TitleHeader from "@/components/common/TitleHeader"
+import TitleHeader from "@/components/atoms/TitleHeader"
 
 const coursesData = [
   {
@@ -87,12 +87,19 @@ export default function Courses() {
                   </AnimatePresence>
                 </div>
 
-                <div className="relative top-40 mt-auto flex w-full items-center xl:top-auto">
+                <div
+                  className={cn(
+                    "relative top-40 mt-auto flex w-full items-center xl:top-auto",
+                    isActive ? "" : "justify-center"
+                  )}
+                >
                   <motion.span
                     className={cn(
                       "font-nohemi relative leading-none font-semibold",
                       "text-[7rem] xl:text-[9.5rem]",
-                      isActive ? "bottom-[90] xl:top-3" : "top-1/4"
+                      isActive
+                        ? "bottom-[90] xl:top-10"
+                        : "bottom-[-50] lg:top-1/5"
                     )}
                   >
                     {item.count}
@@ -102,12 +109,12 @@ export default function Courses() {
                       "absolute flex flex-col",
                       isActive
                         ? "top-[-90] left-1/3 w-75 xl:top-1/4"
-                        : "top-1/2 left-2/3 xl:top-1/5 xl:left-1/2"
+                        : "top-[10%] left-2/3 xl:top-1/5 xl:left-1/2"
                     )}
                     initial={false}
                     animate={{
                       rotate: isActive ? 0 : -90,
-                      paddingLeft: isActive ? "90px" : "50px",
+                      paddingLeft: isActive ? "90px" : "80px",
                     }}
                     transition={{
                       type: "spring",

@@ -1,5 +1,5 @@
 "use client"
-import UserCard from "@/components/common/UserCard"
+import UserCard from "@/components/organisms/UserCard"
 import { AlertCircle, LoaderCircle, Search } from "lucide-react"
 import { User } from "../interface"
 

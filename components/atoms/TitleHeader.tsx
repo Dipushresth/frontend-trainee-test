@@ -10,8 +10,8 @@ export default function TitleHeader({
 }: titleHeaderInterface) {
   return (
     <div className="mb-12">
-      <p className="mb-2 text-[24px] text-slate-600">{subtitle}</p>
-      <h2 className="font-nohemi items-center gap-2 text-4xl font-bold text-slate-900 xl:flex">
+      <p className="mb-2 text-base text-slate-600 lg:text-[24px]">{subtitle}</p>
+      <h2 className="font-nohemi items-center gap-2 text-2xl font-bold text-slate-900 lg:text-4xl xl:flex">
         {children}
         {emoji}
       </h2>
