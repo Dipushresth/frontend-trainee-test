@@ -10,10 +10,10 @@ const Sidebar = () => {
   return (
     <aside className="hidden w-65 overflow-auto border-r border-black/5 bg-slate-50 md:block">
       <div className="p-6">
-        <div className="mb-8 flex items-center gap-2">
+        <Link href="/" className="mb-8 flex items-center gap-2">
           <Gauge className="h-6 w-6 text-blue-500" />
           <span className="text-2xl font-bold">DashBoard</span>
-        </div>
+        </Link>
         <nav className="space-y-1">
           {navItems.map(({ href, label, icon: Icon }) => {
             const isActive = pathname === href || pathname.startsWith(href)
