@@ -1,5 +1,5 @@
 "use client"
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import {
   Card,
   CardContent,
@@ -13,7 +13,6 @@ import FolatingContent from "../molecules/FloatingContent"
 import { AnimatePresence, motion } from "framer-motion"
 import CardCarousel from "./CardCarousel"
 import { CardData } from "@/shared/interface"
-import { style } from "framer-motion/client"
 
 interface CardLayoutInterface {
   card: CardData
@@ -47,11 +46,11 @@ export default function CardLayout({
     >
       <Card
         className={cn(
-          "relative min-h-[340px] items-center justify-center overflow-visible rounded-2xl border-0 px-9 text-white lg:rounded-[32px]"
+          "relative min-h-85 items-center justify-center overflow-visible rounded-2xl border-0 px-9 text-white shadow-none! outline-0 hover:shadow-none! hover:outline-0 lg:rounded-[32px]"
         )}
       >
         <div
-          className="absolute inset-0 overflow-hidden rounded-2xl shadow duration-500 lg:rounded-[32px]"
+          className="absolute inset-0 overflow-hidden rounded-2xl duration-500 lg:rounded-[32px]"
           style={{ backgroundColor: card?.color }}
         >
           <AnimatePresence>
@@ -115,7 +114,7 @@ export default function CardLayout({
                 <Image
                   src={card.image}
                   alt=""
-                  className="pointer-events-none w-[100%] object-contain md:w-2xs"
+                  className="w-ful pointer-events-none object-contain md:w-2xs"
                 />
               </FolatingContent>
             </CardFooter>

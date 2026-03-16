@@ -98,7 +98,7 @@ export default function Courses() {
                       "font-nohemi relative leading-none font-semibold",
                       "text-[7rem] xl:text-[9.5rem]",
                       isActive
-                        ? "bottom-[90] xl:top-10"
+                        ? "bottom-[90] xl:top-11"
                         : "bottom-[-50] lg:top-1/5"
                     )}
                   >
