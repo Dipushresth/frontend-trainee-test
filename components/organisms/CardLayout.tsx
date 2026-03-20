@@ -44,13 +44,10 @@ export default function CardLayout({
     >
       <Card
         className={cn(
-          "relative min-h-95 items-center justify-center overflow-visible rounded-2xl border-0 text-white shadow-none! outline-0 hover:shadow-none! hover:outline-0 lg:min-h-85 lg:rounded-[32px] lg:px-9"
+          "relative min-h-95 items-center justify-center overflow-visible rounded-2xl border-0 text-white ring-0 outline-0 hover:outline-0 lg:min-h-85 lg:rounded-[32px] lg:px-9"
         )}
       >
-        <div
-          className="inset-0 overflow-hidden rounded-2xl duration-500 lg:absolute lg:rounded-[32px]"
-          style={{ backgroundColor: card?.color }}
-        >
+        <div className="inset-0 overflow-hidden rounded-2xl border border-white duration-500 lg:absolute lg:rounded-[32px]">
           <AnimatePresence>
             {isHovered && (
               <motion.div
@@ -61,6 +58,10 @@ export default function CardLayout({
                 className="absolute inset-0 z-0"
               >
                 <CardCarousel images={card.carouselImages} />
+                <div
+                  className="absolute top-0.5 left-0.5 z-[-1] h-[99.5%] w-[99.5%] rounded-[32px]"
+                  style={{ backgroundColor: card.color }}
+                ></div>
               </motion.div>
             )}
           </AnimatePresence>
