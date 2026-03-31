@@ -81,10 +81,7 @@ export default function Journey() {
         {cards.map((card, i) => (
           <div
             key={i}
-            className={cn(
-              "relative h-auto lg:h-85",
-              i % 2 === 0 ? "text-right" : ""
-            )}
+            className={cn("relative", i % 2 === 0 ? "text-right" : "")}
           >
             <CardLayout
               card={card}

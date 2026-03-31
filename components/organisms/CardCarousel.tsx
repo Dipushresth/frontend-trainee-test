@@ -21,7 +21,7 @@ export default function CardCarousel({ images }: CardCarouselInterface) {
     setIndex((prev) => (prev - 1 + images.length) % images.length)
   }
   return (
-    <div className="group/carousel relative h-full w-full overflow-hidden rounded-[32px]">
+    <div className="rounded-0 relative h-full w-full overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -45,22 +45,22 @@ export default function CardCarousel({ images }: CardCarouselInterface) {
           </div>
         </motion.div>
       </AnimatePresence>
-      <Button
+      <button
+        className="absolute top-[35%] left-[-50] flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white"
         onClick={prev}
-        className="absolute top-[35%] left-[-50] z-30 flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white"
       >
         <span className="relative left-3 flex h-10 w-10 items-center justify-center rounded-[50%] bg-slate-100 shadow">
           <ChevronLeft className="h-6 w-6 text-gray-800" />
         </span>
-      </Button>
-      <Button
-        onClick={next}
+      </button>
+      <button
         className="absolute top-[35%] right-[-50] z-30 flex h-30 w-30 cursor-pointer items-center justify-center rounded-full bg-white transition-colors"
+        onClick={next}
       >
         <span className="relative right-3 flex h-10 w-10 items-center justify-center rounded-[50%] bg-slate-100 shadow">
           <ChevronRight className="h-6 w-6 text-gray-800" />
         </span>
-      </Button>
+      </button>
     </div>
   )
 }
