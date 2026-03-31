@@ -64,7 +64,7 @@ export default function CardLayout({
                 ></div>
               </motion.div>
             )}
-            <motion.div className="absolute inset-0 z-0">
+            <motion.div key="default" className="absolute inset-0 z-0">
               <CardCarousel images={card.carouselImages} />
               <div
                 className="absolute top-0.5 left-0.5 z-[-1] h-[99.5%] w-[99.5%] rounded-[32px]"

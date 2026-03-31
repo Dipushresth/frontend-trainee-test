@@ -78,10 +78,10 @@ export default function Journey() {
         <span className="text-emerald-500">Stand</span>Out.
       </TitleHeader>
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        {cards.map((card, i) => (
+        {cards.map((card) => (
           <div
-            key={i}
-            className={cn("relative", i % 2 === 0 ? "text-right" : "")}
+            key={card.id}
+            className={cn("relative", card.id % 2 === 0 ? "text-right" : "")}
           >
             <CardLayout
               card={card}
