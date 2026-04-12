@@ -37,8 +37,24 @@ const coursesData = [
 ]
 
 export default function Courses() {
-  const [activeId, setActiveId] = useState("ongoing")
+  const [activeCard, setActiveCard] = useState<number | null>(1)
+  const [prevCard, setPrevCard] = useState<number | null>(null)
 
+  const handleClick = (index: number) => {
+    setPrevCard(activeCard)
+    setActiveCard(index)
+  }
+
+  const getDirection = (index: number) => {
+    if (index === 0) return "right"
+    if (index === 2) return "left"
+    if (index === 1) {
+      console.log("prevCard initial", prevCard)
+      if (prevCard === 0) return "left"
+      if (prevCard === 2) return "right"
+    }
+    return "left"
+  }
   return (
     <section className="bg-white py-24">
       <TitleHeader
@@ -49,13 +65,13 @@ export default function Courses() {
         <span className="pl-2 text-emerald-500">What's Hot Right Now!</span>
       </TitleHeader>
       <div className="flex-wrap gap-6 xl:flex xl:h-100">
-        {coursesData.map((item) => {
-          const isActive = activeId === item.id
+        {coursesData.map((item, i) => {
+          const isActive = activeCard === i
           return (
             <motion.div
               key={item.id}
               layout
-              onClick={() => setActiveId(item.id)}
+              onClick={() => handleClick(i)}
               className={cn(
                 "relative mb-3 min-h-115 cursor-pointer overflow-hidden rounded-[2.5rem] transition-all duration-500",
                 isActive
@@ -75,9 +91,26 @@ export default function Courses() {
                 </div>
 
                 <div className="flex flex-1 items-center justify-center">
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div className="flex items-center gap-8">
+                  <AnimatePresence mode="wait">
+                    {activeCard === i && (
+                      <motion.div
+                        key={i}
+                        initial={{
+                          x: getDirection(i) === "left" ? -400 : 400,
+                          opacity: 0,
+                        }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{
+                          x: getDirection(i) === "left" ? 400 : -400,
+                          opacity: 0,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 50,
+                        }}
+                        className="flex items-center gap-8"
+                      >
                         <Icon name="reactIcon" />
                         <Icon name="mediaIcon" />
                         <Icon name="vueIcon" />
