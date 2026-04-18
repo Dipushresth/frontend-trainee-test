@@ -39,6 +39,7 @@ const coursesData = [
 export default function Courses() {
   const [activeCard, setActiveCard] = useState<number | null>(1)
   const [prevCard, setPrevCard] = useState<number | null>(null)
+  const [nextCard, setNextCard] = useState<number | null>(null)
 
   const handleClick = (index: number) => {
     setPrevCard(activeCard)
@@ -101,7 +102,10 @@ export default function Courses() {
                         }}
                         animate={{ x: 0, opacity: 1 }}
                         exit={{
-                          x: getDirection(i) === "left" ? 400 : -400,
+                          x:
+                            getDirection(i) === "left" && prevCard === 0
+                              ? -400
+                              : 400,
                           opacity: 0,
                         }}
                         transition={{
