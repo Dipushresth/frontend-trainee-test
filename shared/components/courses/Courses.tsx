@@ -56,6 +56,12 @@ export default function Courses() {
     }
     return "left"
   }
+
+  const exitDirection = (index: number) => {
+    if (index === 1 && prevCard === 2) return -400
+    if (index === 1 && prevCard === 0) return 400
+    return getDirection(index) === "left" ? -400 : 400
+  }
   return (
     <section className="bg-white py-24">
       <TitleHeader
@@ -102,10 +108,7 @@ export default function Courses() {
                         }}
                         animate={{ x: 0, opacity: 1 }}
                         exit={{
-                          x:
-                            getDirection(i) === "left" && prevCard === 0
-                              ? -400
-                              : 400,
+                          x: exitDirection(i),
                           opacity: 0,
                         }}
                         transition={{
