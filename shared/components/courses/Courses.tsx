@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -37,31 +37,37 @@ const coursesData = [
 ]
 
 export default function Courses() {
-  const [activeCard, setActiveCard] = useState<number | null>(1)
-  const [prevCard, setPrevCard] = useState<number | null>(null)
-  const [nextCard, setNextCard] = useState<number | null>(null)
+  const [activeCard, setActiveCard] = useState<number>(1)
+  const directionRef = useRef(0)
 
   const handleClick = (index: number) => {
-    setPrevCard(activeCard)
+    if (index === activeCard) return
+    directionRef.current = index > activeCard ? 1 : -1
     setActiveCard(index)
   }
 
-  const getDirection = (index: number) => {
-    if (index === 0) return "right"
-    if (index === 2) return "left"
-    if (index === 1) {
-      console.log("prevCard initial", prevCard)
-      if (prevCard === 0) return "left"
-      if (prevCard === 2) return "right"
-    }
-    return "left"
+  const variants = {
+    enter: (dir: number) => {
+      console.log("direction in variants", dir)
+
+      return {
+        x: dir === 1 ? -400 : 400,
+        opacity: 0,
+        transition: {
+          delay: 0.9,
+        },
+      }
+    },
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir === 1 ? 400 : -400,
+      opacity: 0,
+    }),
   }
 
-  const exitDirection = (index: number) => {
-    if (index === 1 && prevCard === 2) return -400
-    if (index === 1 && prevCard === 0) return 400
-    return getDirection(index) === "left" ? -400 : 400
-  }
   return (
     <section className="bg-white py-24">
       <TitleHeader
@@ -98,23 +104,23 @@ export default function Courses() {
                 </div>
 
                 <div className="flex flex-1 items-center justify-center">
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence mode="wait" custom={directionRef.current}>
                     {activeCard === i && (
                       <motion.div
-                        key={i}
-                        initial={{
-                          x: getDirection(i) === "left" ? -400 : 400,
-                          opacity: 0,
-                        }}
-                        animate={{ x: 0, opacity: 1 }}
-                        exit={{
-                          x: exitDirection(i),
-                          opacity: 0,
-                        }}
+                        key={activeCard}
+                        custom={directionRef.current}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
                         transition={{
+                          // type: "spring",
+                          // stiffness: 300,
+                          // damping: 50,
                           type: "spring",
-                          stiffness: 300,
-                          damping: 50,
+                          stiffness: 80,
+                          damping: 18,
+                          delay: 0.1,
                         }}
                         className="flex items-center gap-8"
                       >
