@@ -93,7 +93,7 @@ export default function Courses() {
               )}
             >
               <div className="relative z-10 h-full w-full flex-col p-8 xl:flex">
-                <div className="xl:-full flex justify-end xl:w-auto">
+                <div className="xl:-full flex h-4 justify-end xl:w-auto">
                   <AnimatePresence>
                     {isActive && (
                       <motion.button className="flex items-center gap-2 text-sm font-bold hover:underline">
@@ -114,12 +114,12 @@ export default function Courses() {
                         animate="center"
                         exit="exit"
                         transition={{
-                          // type: "spring",
-                          // stiffness: 300,
-                          // damping: 50,
                           type: "spring",
-                          stiffness: 80,
-                          damping: 18,
+                          stiffness: 200,
+                          damping: 50,
+                          // type: "spring",
+                          // stiffness: 80,
+                          // damping: 18,
                           delay: 0.1,
                         }}
                         className="flex items-center gap-8"
