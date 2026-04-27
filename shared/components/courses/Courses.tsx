@@ -148,25 +148,21 @@ export default function Courses() {
                     {item.count}
                   </motion.span>
                   <motion.div
-                    className={cn(
-                      "absolute flex flex-col max-w-70",
-
-                    )}
+                    className={cn("absolute flex max-w-70 flex-col")}
                     initial={false}
                     animate={{
                       rotate: isActive ? 0 : -90,
-                       y: isActive ? 10 : -70,
-                       x: isActive ? 300 : 100,
-     
+                      y: isActive ? 20 : -70,
+                      x: isActive ? 300 : 100,
                     }}
                     transition={{
                       type: "spring",
-                      stiffness: 60,
+                      stiffness: 80,
                       damping: 10,
                       delay: 0.2,
                     }}
                     style={{
-                      transformOrigin: "left",
+                      transformOrigin: "left center",
                     }}
                   >
                     <motion.h3
@@ -177,7 +173,7 @@ export default function Courses() {
                     </motion.h3>
                     <motion.p
                       layoutId={`subtitle-${item.id}`}
-                      className="mt-4 max-w-45 text-lg"
+                      className="mt-2 max-w-45 text-lg"
                     >
                       {item.subtitle}
                     </motion.p>
@@ -197,7 +193,7 @@ export default function Courses() {
                 transition={{
                   type: "spring",
                   stiffness: 60,
-                  damping: 10,
+                  damping: 20,
                   delay: 0.1,
                 }}
               ></motion.div>
