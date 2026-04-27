@@ -86,7 +86,7 @@ export default function Courses() {
               layout
               onClick={() => handleClick(i)}
               className={cn(
-                "relative mb-3 min-h-115 cursor-pointer overflow-hidden rounded-[2.5rem] transition-all duration-500",
+                "relative mb-3 min-h-115 cursor-pointer overflow-hidden rounded-[2.5rem] transition-all duration-900",
                 isActive
                   ? "flex-2 bg-secondary text-white"
                   : "flex-1 bg-secondary-light text-secondary"
@@ -116,11 +116,8 @@ export default function Courses() {
                         transition={{
                           type: "spring",
                           stiffness: 200,
-                          damping: 50,
-                          // type: "spring",
-                          // stiffness: 80,
-                          // damping: 18,
-                          delay: 0.1,
+                          damping: 40,
+                          delay: 0.3,
                         }}
                         className="flex items-center gap-8"
                       >
@@ -136,12 +133,12 @@ export default function Courses() {
                 <div
                   className={cn(
                     "relative top-40 mt-auto flex w-full items-center xl:top-auto",
-                    isActive ? "" : "justify-center"
+                    isActive ? "" : "justify-start"
                   )}
                 >
                   <motion.span
                     className={cn(
-                      "font-nohemi relative left-3 leading-none font-semibold",
+                      "font-nohemi relative leading-none font-semibold",
                       "text-[7rem] xl:text-[9.5rem]",
                       isActive
                         ? "bottom-[90] left-[-1] xl:top-8"
@@ -152,23 +149,24 @@ export default function Courses() {
                   </motion.span>
                   <motion.div
                     className={cn(
-                      "absolute flex flex-col",
-                      isActive
-                        ? "top-[-90] left-1/3 w-75 xl:top-1/3"
-                        : "top-[10%] left-2/3 xl:top-1/5 xl:left-1/2"
+                      "absolute flex flex-col max-w-70",
+
                     )}
                     initial={false}
                     animate={{
                       rotate: isActive ? 0 : -90,
-                      paddingLeft: isActive ? "100px" : "90px",
+                       y: isActive ? 10 : -70,
+                       x: isActive ? 300 : 100,
+     
                     }}
                     transition={{
                       type: "spring",
-                      stiffness: 100,
+                      stiffness: 60,
                       damping: 10,
+                      delay: 0.2,
                     }}
                     style={{
-                      transformOrigin: "left center",
+                      transformOrigin: "left",
                     }}
                   >
                     <motion.h3
@@ -198,8 +196,9 @@ export default function Courses() {
                 }}
                 transition={{
                   type: "spring",
-                  stiffness: 50,
+                  stiffness: 60,
                   damping: 10,
+                  delay: 0.1,
                 }}
               ></motion.div>
             </motion.div>
